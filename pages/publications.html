@@ -6,14 +6,247 @@
     	<link rel="stylesheet" href="../stylesheets/styles.css">
     	<link rel="stylesheet" href="../stylesheets/pygment_trac.css">
     	<meta name="viewport" content="width=device-width">
+
+		<!-- CSS for the dropdown menu -->
+		<style>
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 0px 0px 0px 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #39c;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #595959;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: #fff;
+  color: #777;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #fff;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
 	</head>
 	<body>
 		<div class="wrapper">
 			<header>
 				<h2><a href="../index.html">Home</a></h2>
+				<h2><a href="#Publications">Publications</a></h2>
+				<button class="dropdown-btn">Year
+						<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-container">
+  					<a href="#2023">2023</a>
+  					<a href="#2022">2022</a>
+					<a href="#2020">2020</a>
+  					<a href="#2019">2019</a>
+					<a href="#2018">2018</a>
+					<a href="#2017">2017</a>
+					<a href="#2016">2016</a>
+					<a href="#2015">2015</a>
+					<a href="#2014">2014</a>
+					<a href="#2013">2013</a>
+					<a href="#2012">2012</a>
+				</div>
 			</header>
-			<section>
-				<h1>Publications</h1>
-			</section>
+				<section>
+					<h1><a name="Publications">Publications</a></h1>
+				</section>
+				<section>
+					<h2><a name="2023">2023</a></h2><!-- 2023               -->
+					
+					<h3><a href="https://doi.org/10.1002/advs.202205223" target="_blank">Micro-combinatorial hydrogel particles boosting the chemotoxic potential of docetaxel in advanced breast cancer lung metastasis</a> </h3>
+					<p>Palange AL, Di Mascolo D, Ferreira M, Gawne P, Spanò R, Felici A, Bono L, <b>Moore T</b>, Salerno M, Armirotti A, Decuzzi P.<br>
+					<i>Advanced Science</i>, (2023), doi: 10.1002/advs.202205223</p>
+
+				</section>
+				<section>
+					<h2><a name="2022">2022</a></h2><!-- 2022               -->
+
+					<h3><a href="https://doi.org/10.1007/s13346-022-01143-4" target="_blank">Shape-specific microfabricated particles for biomedical applications: A review</a></h3>
+					<p><b>Moore T</b>, Cook A, Bellotti E, Palomba R, Manghnani P, Spanò R, Brahmachari S, Di Francesco M, Palange AL, Di Mascolo D, Decuzzi P.<br>
+					<i>Drug Delivery and Translational Research</i>, 12: 2038 (2022), doi: 10.1007/s13346-022-01143-4</p><br>
+
+					<h3><a href="https://doi.org/10.1002/pol.20210748" target="_blank">Size effects of discoidal PLGA nanoconstructs in Pickering emulsion stabilization</a></h3>
+					<p>Cook A, Schlich M, Manghnani P, <b>Moore T</b>, Decuzzi P, Palange AL.<br>
+					<i>Journal of Polymer Science</i>, 60: 1480&mdash;1491 (2022), doi: 10.1002/pol.20210748</p><br>
+
+					<h3><a href="https://doi.org/10.1016/j.jcis.2021.09.094" target="blank">Preparation of anisotropic multiscale micro-hydrogels via two-photon continuous flow lithography</a></h3>
+					<p>Manghnani P, Di Francesco V, Panella La Capria C, Schlich M, Miali M, <b>Moore T</b>, Zunino A, Duocastella M, Decuzzi P.<br>
+					<i>Journal of Colloid and Interface Science</i>, 608: 622&mdash;633 (2022), doi: 10.1016/j.jcis.2021.09.094</p>
+				</section>
+				<section>
+					<h2><a name="2020">2020</a></h2><!-- 2020               -->
+				
+					<h3><a href="https://doi.org/10.1002/adfm.202002630" target="blank">Particle surfaces to study macrophage adherence, migration, and clearance</a></h3>
+					<p>Septiadi D, Lee A, Spuch-Calvar M, <b>Moore T</b>, Spiaggia G, Abdussalam W, Rodriguez-Lorenzo L, Taladriz-Blanco P, Rothen-Rutishauser B, Petri-Fink A.<br>
+					<i>Advanced Functional Materials</i>, 30: 2002630 (2020), doi: 10.1002/adfm.202002630</p>
+				</section>
+				<section>
+					<h2><a name="2019">2019</a></h2><!-- 2019               -->
+				
+					<h3><a href="https://doi.org/10.1038/s41598-018-36954-4" target="blank">Nanoparticle administration method in cell culture alters particle-cell interaction</a></h3>
+					<p><b>Moore T</b>, Urban D, Rodriguez-Lorenzo L, Milosevic A, Spuch-Calvar M, Balog S, Rothen-Rutishauser B, Lattuada M, Fink A.<br>
+					<i>Scientific Reports</i>, 9: 900 (2019), doi: 10.1038/s41598-018-36954-4</p><br>
+
+					<h3><a href="https://doi.org/10.1007/s10544-019-0398-5" target="blank">A tissue chamber chip for assessing nanoparticle mobility in the extravascular space</a></h3>
+					<p>Lusì V, <b>Moore T</b>, Laurino F, Coclite A, Perreira R, Ferreira M, Rizzuti I, Palomba R, Zunino P, Duocastella M, Mizrahy S, Peer D, Decuzzi P.<br>
+			<i>Biomedical Microdevices</i>, 21: 41 (2019), doi: 10.1007/s10544-019-0398-5</p>
+		</section>
+				<section>
+					<h2><a name="2018">2018</a></h2><!-- 2018               -->
+				
+					<h3><a href="https://doi.org/10.1002/smll.201802088" target="blank">Beyond global charge:  Role of amine accessibility on protein corona formation and nanoparticle cellular uptake</a></h3>
+					<p> Burnand D, Milosevic A, Balog S, Spuch-Calvar M, Rothen-Rutishauser B, Dengjel J, Kinnear C, <b>Moore T</b>, Fink A.<br>
+					<i>Small</i>, 14: 1802088 (2018), doi: 10.1002/smll.201802088</p><br>
+					
+					<h3><a href="https://doi.org/10.1002/adma.201704463" target="blank">Nanoparticle-cell interactions:  A mechanobiology perspective</a></h3>
+					<p> Septiadi D, Crippa F, <b>Moore T</b>, Rothen-Rutishauser B, Fink A.<br>
+					<i>Advanced Materials</i>, 30: e1704463 (2018), doi: 10.1002/adma.201704463</p><br>
+
+					<h3><a href="https://doi.org/10.1016/j.colsurfb.2018.07.066" target="blank">A Rational and Iterative Process for Targeted Nanoparticle Design and Validation</a></h3>
+					<p> Rodriguez-Lorenzo L, Rafiee S, Reis C, Milosevic A, <b>Moore T</b>, Balog S, Rothen-Rutishauser B, R&uuml;egg C, Fink A.<br>
+					<i>Colloids Surfaces B: Biointerfaces</i>, 171: 579&mdash;589 (2018), doi: 10.1016/j.colsurfb.2018.07.066</p><br>
+
+					<h3><a href="https://doi.org/10.1016/j.colcom.2017.12.001" target="blank">Taylor dispersion of inorganic nanoparticles and comparison to dynamic light scattering and transmission electron microscopy</a></h3>
+					<p>Urban D, Milosevic A, Bossert D, Crippa F, <b>Moore T</b>, Geers C, Balog S, Rothen-Rutishauser B, Fink A.<br>
+					<i>Colloid Interface Science Communications</i>, 22: 29&mdash;33 (2018), doi: 10.1016/j.colcom.2017.12.001</p>
+				</section>
+				<section>
+					<h2><a name="2017">2017</a></h2><!-- 2017               -->
+				
+					<h3><a href="https://doi.org/10.1021/acsami.7b03479" target="blank">Cellular shuttles:  Monocyte/macrophages exhibit transendothelial transport of nanoparticles under physiological flow</a></h3>
+					<p><b>Moore T</b>, Hauser D, Gruber T, Rothen-Rutishauser B, Lattuada M, Petri-Fink A, Lyck R.<br>
+					<i>ACS Applied Materials &amp; Interfaces</i>, 9: 18501&mdash;18511 (2017), doi: 10.1021/acsami.7b03479</p><br>
+
+					<h3><a href="https://doi.org/10.1016/j.jmmm.2016.11.012" target="blank">Lock-in thermography as a rapid and reproducible thermal characterization method for magnetic nanoparticles</a></h3>
+					<p> Lemal P, Geers C, Monnier C, Crippa F, Daum L, Urban D, Rothen-Rutishauser B, Bonmarin M, Petri-Fink A, <b>Moore T</b>.<br>
+					<i>Journal of Magnetism and  Magnetic Materials</i>, 427: 206&#812;211 (2017), doi: 10.1016/j.jmmm.2016.11.012</p><br>
+
+
+					<h3><a href="https://doi.org/10.1021/acs.chemrev.7b00194" target="blank">Form follows function:  Nanoparticle shape and its implications for nanomedicine</a></h3>
+					<p> Kinnear C, <b>Moore T</b>, Rodriguez-Lorenzo L, Rothen-Rutishauser B, Petri-Fink A.<br>
+					<i>Chemical Reviews</i>, 117: 11476&mdash;11521 (2017), doi: 10.1021/acs.chemrev.7b00194</p><br>
+
+					<h3><a href="https://doi.org/10.1016/j.jmmm.2016.11.023" target="blank">Dynamic and biocompatible thermo-responsive magnetic hydrogels that respond to an alternating magnetic field</a></h3>
+					<p>Crippa F, <b>Moore T</b>, Mortato M, Geers G, Haeni L, Hirt AM, Rothen-Rutishauser B, Petri-Fink A.<br>
+					<i>Journal of Magnetism and Magnetic Materials</i>, 427: 212&mdash;219 (2017), doi: 10.1016/j.jmmm.2016.11.023</p><br>
+
+					<h3><a href="https://doi.org/10.1039/C7TB01289F" target="blank">Bright X-ray and upconversion nanophosphors annealed using encapsulated sintering agents for bioimaging applications</a></h3>
+					<p> Chen H, Wang F, <b>Moore T</b>, Qi B, Sulejmanovic D, Hwu S, Mefford O, Alexis F, Anker J.<br>
+					<i>Journal of Materials Chemistry B</i>, 5: 5412&mdash;5424 (2017), doi: 10.1039/C7TB01289F</p>
+				</section>
+				<section>
+					<h2><a name="2016">2016</a></h2><!-- 2016               -->
+				
+					<h3><a href="https://doi.org/10.2533/chimia.2016.110" target="blank">What we talk about when we talk about nanoparticle-cell interaction</a></h3>
+					<p> Balog S, <b>Moore T</b>, Rothen-Rutishauser B, Petri-Fink A.<br>
+					<i>CHIMIA International Journal of Chemistry</i>i, 70: 110 (2016), doi: 10.2533/chimia.2016.110</p>
+				</section>
+				<section>
+					<h2><a name="2015">2015</a></h2>
+				
+					<h3><a href="https://doi.org/10.1039/C4CS00487F" target="blank">Nanoparticle colloidal stability in cell culture media and impact on cellular interactions</a></h3>
+					<p><b>Moore T</b>, Rodriguez-Lorenzo L, Hirsch V, Balog S, Urban D, Jud C, Rothen-Rutishauser B, Lattuada M, Petri-Fink A.<br>
+					<i>Chemical Society Reviews</i>, 44: 6287&mdash;6305 (2015), doi: 10.1039/C4CS00487F</p>
+
+
+
+
+
+
+					<h3><a href="" target="blank"></a></h3>
+					<p> <br>
+					<i></i></p><br>
+
+
+
+
+
+
+				</section>
+				<section>
+					<h2><a name="2014">2014</a></h2>
+				
+
+				</section>
+				<section>
+					<h2><a name="2013">2013</a></h2>
+				
+
+				</section>
+				<section>
+					<h2><a name="2012">2012</a></h2>
+				
+
+				</section>
+	<!-- Script to handle dropdown behavior -->
+	<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+	</script>
 	</body>
 </html>
