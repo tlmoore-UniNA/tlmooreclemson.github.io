@@ -1,58 +1,94 @@
 library(shiny)
+library(scholar)
+library(dplyr)
+library(ggplot2)
 
-# Load citation data -----
-dat_scopus_url <- "https://raw.githubusercontent.com/tlmooreclemson/tlmooreclemson.github.io/main/pages/pub_shiny/scopus_citationOverview.csv"
-scopus <- read.csv(dat_scopus_url, head=TRUE, skip=4)
+# For development
+# options(browser='brave')
 
+scholar_id <- 'l5fRQdoAAAAJ'
+auth <- get_profile(scholar_id)
+h_index <- auth$h_index
 
-# Organize data frame
-names(scopus)[1:7] <- scopus[2, 1:7] # re-name columns based on second row
-names(scopus)[8:length(scopus)] <- scopus[1,8:length(scopus)] # re-name columns based on the "years" (1st) row
-scopus <- scopus[3:nrow(scopus),]
+pubs <- get_publications(id='l5fRQdoAAAAJ')
+# Drop known 'non-publication publications'
+pubs <- pubs[which(!pubs$pubid == 'qUcmZB5y_30C'),]
+pubs <- pubs[which(!pubs$pubid == 'IjCSPb-OGe4C'),]
+pubs <- pubs[which(!pubs$pubid == 'Se3iqnhoufwC'),]
+pubs <- pubs[which(!pubs$pubid == 'roLk4NBRz8UC'),]
+# Drop book chapters etc.
+pubs <- pubs[which(!pubs$pubid == 'QIV2ME_5wuYC'),]
+pubs <- pubs[which(!pubs$pubid == '3fE2CSJIrl8C'),]
 
-library(dplyr) # Load the dplyr package
-scopus <- scopus %>% select(-contains(c("<", ">", "total")))
+num_pubs <- nrow(pubs)
+tot_cites <- sum(pubs$cites)
 
-# Create df with citations by year
-library(reshape) # Load the reshape package
-df <- melt(scopus)
-names(df)[names(df) == "variable"] <- "citation_year"
-names(df)[names(df) == "value"] <- "no_citations"
+# Get number of publications per year
+pubYears <- data.frame("year" = pubs$year)
+pubYears <- pubYears %>% group_by(year) %>%
+		count(year)
+pubYears$year = as.numeric(pubYears$year)
 
-# Summary of total citations by year
-df_cite = df %>% # Summarize by year
-  group_by(citation_year) %>%
-  summarise(
-    citations = sum(no_citations)
-  )
+# Get citations per year
+citesYear <- get_citation_history(scholar_id)
+citesYear$cumCites <- cumsum(citesYear$cites) # cumulative citations
 
-df_cite <- df_cite %>%
-  mutate(cumulative_cites = cumsum(citations))
+# Data frame for publication summary
+df <- data.frame("num_pubs" = num_pubs,
+				 "h_index" = as.numeric(h_index),
+				 "tot_cites" = as.numeric(tot_cites))
+df$h_index <- round(df$h_index, digits = 0)
+df$tot_cites <- round(df$tot_cites, digits=0)
 
-df_cite$citation_year = as.numeric(as.character(df_cite$citation_year))
+names(df) = c("Total no. publications", "h-index", "Total no. citations")
 
-# Data frame of number of publications per year
-df_pubs <- data.frame("PublicationYear" = scopus[, 1],
-                      "type" = scopus[,8])
-df_pubs = df_pubs %>%
-  group_by(PublicationYear, type) %>%
-  count(PublicationYear)
-df_pubs$PublicationYear = as.numeric(df_pubs$PublicationYear)
-
-
-# Load Scopus bibliometric data via web scraping
-library(rvest)
-
-# Navigate to Scopus page
-scopus_url <- 'https://www.scopus.com/authid/detail.uri?authorId=36542652400'
-scopus_web <- read_html(scopus_url)
-
-# Get h-index
-h_index <- scopus_web %>% html_node(".row3 .valueColumn span")%>% html_text()
-
-# Shiny app ==========================================================
 ui <- fluidPage(
-	## App title -----
-	titlePanel("Publications"),
+	## Publication summary -----
+	titlePanel("Article Publication Summary"),
+	mainPanel(
+		# Output table as first result
+		tableOutput('table'),
+		fluidRow(splitLayout(cellWidths = c("50%", "50%"), 
+					plotOutput(outputId = 'plotYears'),
+					plotOutput(outputId = 'citeYears')	
+					)
+                )
+	)
+)
+# Define server logic
+server <- function(input, output){
+	output$table <- renderTable({
+			df
+	})
+	output$plotYears <- renderPlot({
+		p_years <- ggplot(pubYears, aes(year, n))+
+				geom_col(colour="black",fill="#3399CC")+
+				scale_x_continuous(name = "Year", 
+								   limits = c(2010, max(pubYears$year)))+
+				scale_y_continuous(name = "No. publications")+
+				theme(panel.grid = element_blank(),
+					  panel.background = element_rect(colour="#595959", fill = NA),
+					  aspect.ratio=1)
+		p_years
+	})
+	output$citeYears <- renderPlot({
+		p_cites <- ggplot(citesYear, aes(year, cumCites))+
+				geom_line(colour = "#3399CC")+
+				geom_point(shape = 21, fill = "#3399CC", colour = "#595959")+
+				scale_x_continuous(name = "Year",
+								   limits = c(2010, max(citesYear$year)))+
+				scale_y_continuous(name = "Total no. citations")+
+				theme(panel.grid = element_blank(),
+                      panel.background = element_rect(colour="#595959", fill = NA),
+                      aspect.ratio=1)
+		p_cites
+	})
+}
 
-
+# Run the app -----
+shinyApp(ui = ui, server = server)
+# App located at: 
+#
+# To update, run:
+# library(rsconnect)
+# rsconnect::deployApp("<path/to/app/directory>", appName="publication_summary")

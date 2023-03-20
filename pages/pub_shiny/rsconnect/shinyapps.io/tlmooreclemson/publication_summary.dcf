@@ -1,0 +1,11 @@
+name: publication_summary
+title:
+username:
+account: tlmooreclemson
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8614190
+bundleId: 6981322
+url: https://tlmooreclemson.shinyapps.io/publication_summary/
+when: 1679304330.05992
+lastSyncTime: 1679304330.05993
