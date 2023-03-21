@@ -5,7 +5,10 @@ account: tlmooreclemson
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8614190
-bundleId: 6981322
+bundleId: 6986575
 url: https://tlmooreclemson.shinyapps.io/publication_summary/
-when: 1679304330.05992
-lastSyncTime: 1679304330.05993
+when: 1679394311.32412
+lastSyncTime: 1679394311.32415
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: scopus_citationOverview.csv|scopusNetwork.csv
