@@ -75,6 +75,28 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 49.9%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 49.9%;
+  padding: 5px;
+}
 </style>
 	</head>
 	<body>
@@ -82,7 +104,9 @@
 			<header>
 				<h2><a href="../index.html">Home</a></h2>
 				<h2><a href="#Publications">Publications</a></h2>
-				
+			
+				<h3><a href="#PubSummary">Publication Summary</a></h3>
+
 				<button class="dropdown-btn">Year
 						<i class="fa fa-caret-down"></i>
 				</button>
@@ -104,6 +128,32 @@
 			</header>
 				<section>
 					<h1><a name="Publications">Publications</a></h1>
+				
+					<h2><a name="PubSummary">Publication Summary</a></h2>
+
+							<table>
+									<tr>
+											<th>Total no. publications</th>
+											<th>h-index</th>
+											<th>Total no. citations</th>
+									</tr>
+									<tr>
+											<th>34</th>
+											<th>22</th>
+											<th>2483</th>
+									</tr>
+							</table>
+
+							<div class="row">
+									<div class="column">
+													<img src="../pages/pub_shiny/plots/plot_pubYears.jpg" alt="PubYears" style="width:100%">
+									</div>
+									<div class="column">
+													<img src="../pages/pub_shiny/plots/plot_citesYears.jpg" alt="CiteYears" style="width:100%">
+									</div>
+							</div>
+							
+							<img src="../pages/pub_shiny/plots/plot_network.jpg" alt="network" style="width:100%">
 				</section>
 				<section>
 					<h2><a name="2023">2023</a></h2><!-- 2023               -->
