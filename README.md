@@ -1,2 +1,3 @@
 # tlmooreclemson.github.io
-Personal webpage for Thomas Moore
+
+This is personal webpage for Thomas Moore.
